@@ -1,8 +1,9 @@
-// MealListPage.js
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMeals } from '../store/actions/actions';
 import MealCard from './MealCard';
+import { Input,Empty } from 'antd';
+
 
 const MealListPage = () => {
   const dispatch = useDispatch();
@@ -36,22 +37,28 @@ const MealListPage = () => {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search meals by name"
+    <div style={{ paddingTop: '20px', paddingBottom: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+     <Input.Search
+        placeholder="Search meals"
         value={searchTerm}
         onChange={handleSearchChange}
+        enterButton
+        style={{ width: '300px', marginTop: '10px', marginBottom: '10px' }} 
       />
       {loading ? <p>Loading...</p> :
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {meals?.map(meal => (
-            <MealCard key={meal.idMeal} meal={meal} />
-          ))}
-        </div>
+        meals && meals.length > 0 ? (
+          <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+            {meals.map(meal => (
+              <MealCard key={meal.idMeal} meal={meal} />
+            ))}
+          </div>
+        ) : (
+          <Empty description="No meals found" />
+        )
       }
     </div>
   );
+  
 };
 
 export default MealListPage;

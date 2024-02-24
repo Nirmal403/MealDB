@@ -1,4 +1,3 @@
-// actions.js
 export const actionTypes = {
   SELECT_MEAL: 'SELECT_MEAL',
   PURCHASE: 'PURCHASE',
