@@ -1,7 +1,7 @@
 import React from "react";
-import { Form, Input, Button } from "antd";
-import {useNavigate} from 'react-router-dom'
-import {useDispatch} from 'react-redux'
+import { Form, Input, Button, Card, Row, Col } from "antd";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const ShippingForm = ({ onSubmit }) => {
   const navigate = useNavigate();
@@ -13,34 +13,46 @@ const ShippingForm = ({ onSubmit }) => {
   };
 
   return (
-    <Form name="shipping" onFinish={onFinish}>
-      <Form.Item
-        label="Name"
-        name="name"
-        rules={[{ required: true, message: "Please input your name!" }]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="Address"
-        name="address"
-        rules={[{ required: true, message: "Please input your address!" }]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="Phone"
-        name="phone"
-        rules={[{ required: true, message: "Please input your phone number!" }]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Purchase
-        </Button>
-      </Form.Item>
-    </Form>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <Card style={{ width: 400 }}>
+        <Form name="shipping" onFinish={onFinish}>
+          <Row gutter={[16, 16]}>
+            <Col span={24}>
+              <Form.Item
+                label="Name"
+                name="name"
+                rules={[{ required: true, message: "Please input your name!" }]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+            <Col span={24}>
+              <Form.Item
+                label="Address"
+                name="address"
+                rules={[{ required: true, message: "Please input your address!" }]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+            <Col span={24}>
+              <Form.Item
+                label="Phone"
+                name="phone"
+                rules={[{ required: true, message: "Please input your phone number!" }]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+            <Col span={24} style={{ textAlign: 'center' }}>
+              <Button type="primary" htmlType="submit">
+                Purchase
+              </Button>
+            </Col>
+          </Row>
+        </Form>
+      </Card>
+    </div>
   );
 };
 

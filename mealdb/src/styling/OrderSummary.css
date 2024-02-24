@@ -1,0 +1,10 @@
+@keyframes pulse {
+    0% { color: green; }
+    50% { color: yellow; }
+    100% { color: green; }
+  }
+  
+  .purchased-status {
+    animation: pulse 2s infinite;
+  }
+  
