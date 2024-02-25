@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout, Button } from "antd";
 import { useNavigate } from "react-router-dom";
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { LeftOutlined, RightOutlined,ShoppingCartOutlined  } from "@ant-design/icons";
 
 const { Header } = Layout;
 
@@ -56,6 +56,12 @@ const CommonNavbar = () => {
           onClick={handleGoBack}
         ></Button>
         <Button icon={<RightOutlined />} onClick={handleGoForward}></Button>
+        <Button
+          type="link"
+          icon={<ShoppingCartOutlined  style={{ fontSize: '32px' }}/>}
+          style={{ color: "white", fontSize: "24px",padding:'4px' }} // Example styles
+          onClick={() => navigate("/cart")} // Example navigation to cart page
+        />
       </div>
     </Header>
   );
