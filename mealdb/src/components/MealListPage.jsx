@@ -4,15 +4,11 @@ import { getData, setMeals } from '../store/actions/actions';
 import MealCard from './MealCard';
 import { Input,Empty } from 'antd';
 
-
 const MealListPage = () => {
   const dispatch = useDispatch();
   const meals = useSelector((store)=>store.data.data)
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
-
- 
-
 
 useEffect(()=>{
   let data = {

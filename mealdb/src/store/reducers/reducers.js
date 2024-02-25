@@ -3,7 +3,8 @@ import { GET_DATA_FAILURE, GET_DATA_REQUEST, GET_DATA_SUCCESS,actionTypes } from
 const initialState = {
   isLoading: false,
   isError:false,
-  data:[]
+  data:[],
+  order: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -29,6 +30,12 @@ const reducer = (state = initialState, action) => {
           isError:true,
           data: null, 
         };
+        case actionTypes.PURCHASE:
+          return {
+            ...state,
+            order: action.payload
+          };
+    
     default:
       return{
         ...state

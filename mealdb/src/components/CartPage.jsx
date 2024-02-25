@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { List, Card, Button } from "antd";
+import { List, Card, Button ,Modal } from "antd";
 import { useNavigate } from "react-router-dom";
 import ShippingForm from "./ShippingForm";
 
@@ -10,8 +10,15 @@ const CartPage = () => {
   const storedMeals = JSON.parse(localStorage.getItem("cartItems")) || [];
 
   const handleCheckout = () => {
+    if (storedMeals.length > 0){
     navigate("/checkout");
     setShowCheckout(true);
+    }else {
+      Modal.info({
+        title: "No Items in Cart",
+        content: "Your cart is empty. Please add items to proceed to checkout.",
+      });
+    }
   };
 
   return (
@@ -24,7 +31,10 @@ const CartPage = () => {
         alignItems: "center",
       }}
     >
-     <div style={{display:'flex'}}>
+     <div style={{ display: "flex",
+          justifyContent: "space-between",
+          width: "100%",
+          marginBottom: "20px",}}>
      <h2>Cart Items</h2>
       {!showCheckout ? (
         <Button type="primary" onClick={handleCheckout}>

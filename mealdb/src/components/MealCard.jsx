@@ -23,12 +23,6 @@ const MealCard = ({ meal }) => {
     navigate(`/meal/${meal.idMeal}`);
   };
 
-  // const handleAddToCart = () => {
-  //   const existingCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  //   existingCartItems.push(meal);
-  //   localStorage.setItem('cartItems', JSON.stringify(existingCartItems));
-  // };
-  
   const handleAddToCart = () => {
     const existingCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     const mealIndex = existingCartItems.findIndex(item => item.idMeal === meal.idMeal);
@@ -47,13 +41,13 @@ const MealCard = ({ meal }) => {
     <div>
     <Card
       title={meal.strMeal}
-      style={{ width: 300, marginBottom: 20}}
+      style={{ width: 300, marginBottom:2, marginTop:20, marginRight:5}}
       onClick={handleCardClick}
     >
       <img src={meal.strMealThumb} alt={meal.strMeal} style={{ width: '100%' }} />
     </Card>
     <Button type="primary" onClick={handleAddToCart}style={{ backgroundColor: addedToCart ? 'lightgreen' : '' }} icon={<ShoppingCartOutlined />}>
-        {addedToCart ? 'Remove from cart' : 'Add to cart'}
+        {addedToCart ? 'Remove' : 'Add'}
       </Button>
     </div>
   );

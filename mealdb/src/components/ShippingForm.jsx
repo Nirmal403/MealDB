@@ -11,11 +11,11 @@ const ShippingForm = ({ onSubmit }) => {
   
   const onFinish = (values) => {
     console.log("dispatch:",dispatch)
-    // dispatch({ type: 'PURCHASE_SUCCESS', payload: {...values, status: 'purchased' }});
-    dispatch(purchase(values));
+    dispatch(purchase({ ...values, status: 'purchased' }));
 
     navigate('/order-summary');
   };
+  
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
