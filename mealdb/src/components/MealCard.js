@@ -14,6 +14,7 @@ const MealCard = ({ meal }) => {
   };
 
   return (
+    <div>
     <Card
       title={meal.strMeal}
       style={{ width: 300, marginBottom: 20 }}
@@ -21,6 +22,8 @@ const MealCard = ({ meal }) => {
     >
       <img src={meal.strMealThumb} alt={meal.strMeal} style={{ width: '100%' }} />
     </Card>
+    <button>Add to cart</button>
+    </div>
   );
 };
 

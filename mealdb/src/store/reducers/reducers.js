@@ -1,31 +1,37 @@
-import { actionTypes } from "../actions/actions"; 
+import { GET_DATA_FAILURE, GET_DATA_REQUEST, GET_DATA_SUCCESS } from "../actions/actions"; 
 
 const initialState = {
-  selectedMeal: null,
-  meals: []
+  isLoading: false,
+  isError:false,
+  data:[]
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SET_MEALS:
+    case GET_DATA_REQUEST:
       return {
         ...state,
-        meals: action.payload
+       isLoading:true,
+       isError:false
       };
-    case actionTypes.SELECT_MEAL:
+    case GET_DATA_SUCCESS:
       return {
         ...state,
-        selectedMeal: action.payload
+       isLoading:false,
+       isError:false,
+       data:action.payload
       };
-    case actionTypes.PURCHASE:
-      // Handle purchase action if needed
-    case 'PURCHASE_SUCCESS':
+      
+    case GET_DATA_FAILURE:
         return {
           ...state,
-          order: action.payload
+          isLoading:false,
+          isError:true,
         };
     default:
-      return state;
+      return{
+        ...state
+      };
   }
 };
 

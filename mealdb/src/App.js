@@ -1,19 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store/store';
+
 import MealListPage from './components/MealListPage';
 import MealDetailsPage from './components/MealDetailsPage';
 import OrderSummaryPage from './components/OrderSummaryPage';
 import ShippingForm from './components/ShippingForm';
 import { Layout } from 'antd';
 import CommonNavbar from './components/CommonNavbar';
+import CartPage from './components/CartPage';
 
 const { Content } = Layout;
 
 const App = () => {
   return (
-    <Provider store={store}>
+    
       <Router>
         <Layout>
           <CommonNavbar />
@@ -24,12 +25,13 @@ const App = () => {
                 <Route exact path="/meal/:id" element={<MealDetailsPage />} />
                 <Route exact path="/order-summary" element={<OrderSummaryPage />} />
                 <Route exact path="/checkout" element={<ShippingForm />} />
+                <Route exact path="/cart" element={<CartPage />} />
               </Routes>
             </div>
           </Content>
         </Layout>
       </Router>
-    </Provider>
+
   );
 };
 

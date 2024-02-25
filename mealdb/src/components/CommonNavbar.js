@@ -27,6 +27,7 @@ const CommonNavbar = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        
       }}
     >
       <div style={{ display: "flex", alignItems: "center" }}>
