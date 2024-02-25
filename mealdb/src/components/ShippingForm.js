@@ -2,13 +2,18 @@ import React from "react";
 import { Form, Input, Button, Card, Row, Col } from "antd";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { purchase } from '../store/actions/actions';
+
 
 const ShippingForm = ({ onSubmit }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   
   const onFinish = (values) => {
-    dispatch({ type: 'PURCHASE_SUCCESS', payload: {...values, status: 'purchased' }});
+    console.log("dispatch:",dispatch)
+    // dispatch({ type: 'PURCHASE_SUCCESS', payload: {...values, status: 'purchased' }});
+    dispatch(purchase(values));
+
     navigate('/order-summary');
   };
 

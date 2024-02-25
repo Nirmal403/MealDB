@@ -33,8 +33,8 @@ const MealDetailsPage = () => {
   let filteredData = selectedMeal?.meals?.filter((item)=>item.idMeal===params.id)
 console.log("filteredData",filteredData)
   return (
-    <div>
-      {filteredData?.length>0 && (
+    <div style={{ paddingTop: '70px', paddingBottom: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    {filteredData?.length>0 && (
         <div style={{ maxWidth: 600, margin: '0 auto' }}>
           <Card
             title={filteredData[0]?.strMeal}

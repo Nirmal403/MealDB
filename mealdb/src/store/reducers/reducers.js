@@ -1,4 +1,4 @@
-import { GET_DATA_FAILURE, GET_DATA_REQUEST, GET_DATA_SUCCESS } from "../actions/actions"; 
+import { GET_DATA_FAILURE, GET_DATA_REQUEST, GET_DATA_SUCCESS,actionTypes } from "../actions/actions"; 
 
 const initialState = {
   isLoading: false,
@@ -27,6 +27,7 @@ const reducer = (state = initialState, action) => {
           ...state,
           isLoading:false,
           isError:true,
+          data: null, 
         };
     default:
       return{

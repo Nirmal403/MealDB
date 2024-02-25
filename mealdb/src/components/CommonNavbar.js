@@ -59,8 +59,8 @@ const CommonNavbar = () => {
         <Button
           type="link"
           icon={<ShoppingCartOutlined  style={{ fontSize: '32px' }}/>}
-          style={{ color: "white", fontSize: "24px",padding:'4px' }} // Example styles
-          onClick={() => navigate("/cart")} // Example navigation to cart page
+          style={{ color: "white", fontSize: "24px",padding:'4px' }}
+          onClick={() => navigate("/cart")}
         />
       </div>
     </Header>

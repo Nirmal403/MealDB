@@ -3,11 +3,9 @@ import { useSelector } from 'react-redux';
 import OrderSummary from './OrderSummary'; 
 
 const OrderSummaryPage = () => {
-  const order = useSelector(state =>{
-    console.log("state:",state)
-    return state.order
-  });
- 
+  const order = useSelector(state => state.order);
+  console.log('Order:', order);
+
   return (
     <div>
       <h2>Order Summary</h2>

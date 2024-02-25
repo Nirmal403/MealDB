@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styling/OrderSummary.css'; // Import your CSS file for styling
+import '../styling/OrderSummary.css';
 
 const OrderSummary = ({ order }) => {
   const { name, address, phone, status } = order;
