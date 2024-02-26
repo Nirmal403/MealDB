@@ -36,6 +36,7 @@ const PreviousOrder = () => {
 
   const handleClearPreviousOrders = () => {
     localStorage.removeItem('previousOrders');
+    window.location.reload();
   };
 
   return (
