@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { Form, Input, Button, Card, Row, Col } from "antd";
+import { Form, Input, Button, Card, Row, Col ,InputNumber } from "antd";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch ,useSelector } from 'react-redux';
 import { purchase } from '../store/actions/actions';
@@ -63,7 +63,7 @@ const ShippingForm = ({ onSubmit }) => {
                 name="phone"
                 rules={[{ required: true, message: "Please input your phone number!" }]}
               >
-                <Input />
+                 <InputNumber style={{ width: '100%' }} />
               </Form.Item>
             </Col>
             <Col span={24} style={{ textAlign: 'center' }}>
