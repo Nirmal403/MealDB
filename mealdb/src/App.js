@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Provider } from 'react-redux';
 
 import MealListPage from './components/MealListPage';
 import MealDetailsPage from './components/MealDetailsPage';
@@ -9,6 +8,7 @@ import ShippingForm from './components/ShippingForm';
 import { Layout } from 'antd';
 import CommonNavbar from './components/CommonNavbar';
 import CartPage from './components/CartPage';
+import PreviousOrder from './components/PreviousOrder';
 
 const { Content } = Layout;
 
@@ -26,6 +26,7 @@ const App = () => {
                 <Route exact path="/order-summary" element={<OrderSummaryPage />} />
                 <Route exact path="/checkout" element={<ShippingForm />} />
                 <Route exact path="/cart" element={<CartPage />} />
+                <Route exact path="/previous-orders" element={<PreviousOrder />} />
               </Routes>
             </div>
           </Content>

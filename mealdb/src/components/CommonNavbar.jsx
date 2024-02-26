@@ -15,6 +15,7 @@ const CommonNavbar = () => {
     navigate(1);
   };
   const handleNavigateHome = () => {
+    localStorage.removeItem('cartItems');
     navigate("/");
   };
 

@@ -1,21 +1,38 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Form, Input, Button, Card, Row, Col } from "antd";
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch ,useSelector } from 'react-redux';
 import { purchase } from '../store/actions/actions';
 
 
 const ShippingForm = ({ onSubmit }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const storedMeals = useSelector(state => state.data.data);
   
   const onFinish = (values) => {
-    console.log("dispatch:",dispatch)
-    dispatch(purchase({ ...values, status: 'purchased' }));
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    dispatch(purchase({ ...values, cartItems: cartItems, status: 'purchased' }));
+    localStorage.setItem('order', JSON.stringify({ ...values, cartItems: cartItems, status: 'purchased' }));
+    localStorage.removeItem('shippingInfo');
 
+
+    const previousOrders = JSON.parse(localStorage.getItem('previousOrders')) || [];
+    const newOrder = { ...values, cartItems: cartItems, status: 'purchased' };
+    previousOrders.push(newOrder);
+    localStorage.setItem('previousOrders', JSON.stringify(previousOrders));
+    dispatch(purchase(newOrder));
+    localStorage.setItem('order', JSON.stringify(newOrder));
     navigate('/order-summary');
   };
   
+
+  useEffect(() => {
+    return () => {
+      localStorage.removeItem('shippingInfo');
+    };
+  }, []);
+
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>

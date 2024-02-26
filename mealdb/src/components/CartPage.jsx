@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { List, Card, Button ,Modal } from "antd";
-import { useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import ShippingForm from "./ShippingForm";
 
 const CartPage = () => {
@@ -21,6 +21,10 @@ const CartPage = () => {
     }
   };
 
+  const handlePreviousOrder=()=>{
+    navigate('/previous-orders')
+  }
+
   return (
     <div
       style={{
@@ -36,6 +40,7 @@ const CartPage = () => {
           width: "100%",
           marginBottom: "20px",}}>
      <h2>Cart Items</h2>
+     <Button onClick={handlePreviousOrder}type="primary">Previous Orders</Button>
       {!showCheckout ? (
         <Button type="primary" onClick={handleCheckout}>
           Checkout
@@ -44,6 +49,8 @@ const CartPage = () => {
         <ShippingForm />
       )}
      </div>
+     
+       
       <List
         grid={{ gutter: 16, column: 3 }}
         dataSource={storedMeals}

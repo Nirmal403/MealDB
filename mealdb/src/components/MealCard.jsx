@@ -17,7 +17,11 @@ const MealCard = ({ meal }) => {
     setAddedToCart(isInCart);
   }, [meal.idMeal]);
   
-
+  const handleNavigateHome = () => {
+    localStorage.clear();
+    navigate("/");
+  };
+  
   const handleCardClick = () => {
     dispatch(selectMeal(meal));
     navigate(`/meal/${meal.idMeal}`);
