@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
 import MealListPage from './components/MealListPage';
 import MealDetailsPage from './components/MealDetailsPage';
 import OrderSummaryPage from './components/OrderSummaryPage';
@@ -14,7 +13,6 @@ const { Content } = Layout;
 
 const App = () => {
   return (
-    
       <Router>
         <Layout>
           <CommonNavbar />
@@ -32,7 +30,6 @@ const App = () => {
           </Content>
         </Layout>
       </Router>
-
   );
 };
 
